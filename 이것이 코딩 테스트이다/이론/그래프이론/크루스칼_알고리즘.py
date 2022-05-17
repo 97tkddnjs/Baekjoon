@@ -28,10 +28,19 @@ for i in range(1,v+1):
 
 # 모든 간선에 대한 정보를 입력받기
 for _ in range(e):
-    a,b,cost = map(int, input.split())
+    a,b,cost = map(int, input().split())
     edges.append((cost,a,b))
     pass
 
 # 간선을 비용순으로 정렬하기
 edges.sort()
 
+# 간선을 하나씩 확인하며
+for edge in edges:
+    cost, a, b= edge
+    #사이클이 발생하지 않는 경우에만 집합에 포함
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent,a,b)
+        result +=cost
+
+print(result)
