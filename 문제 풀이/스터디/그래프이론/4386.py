@@ -24,7 +24,7 @@ edges = []
 result = float(0)
 
 
-n,m =map(int, input().split())
+n =int(input())
 
 parent=[0]*(n+1) # cycle 체크를 위해서 필요할 수 밖에 없네
 # 부모 테이블상에서,부모를 자기 자신으로 초기화
@@ -33,11 +33,12 @@ for i in range(1,n+1):
 
 comb= [i for i in range(1,n+1)]
 comb = list(combinations(comb,2))
+
 space= dict()
 
 
 for i in range(1,n+1):
-    x ,y = map(int, input().split())
+    x ,y = map(float, input().split())
     space[i] =(x,y)
 
 for c in comb:
@@ -45,11 +46,6 @@ for c in comb:
     cost = distance(space[a], space[b])
     edges.append((cost,a,b))
 
-cnt=0
-for i in range(m):
-    a ,b = map(int, input().split())
-    union_parent(parent, a,b) # 일단 넣어 집합에~
-    cnt+=1
 
 
 # 간선을 비용순으로 정렬하기
@@ -57,7 +53,6 @@ edges.sort()
 # print(edges)
 # print(parent)
 # 간선을 하나씩 확인하며
-
 for edge in edges:
     cost, a, b= edge
 
@@ -66,7 +61,8 @@ for edge in edges:
         union_parent(parent,a,b)
         #print(cost)
         result +=cost
-        cnt+=1
+        
        
-# print(parent) 
+ 
 print(format(result,".2f"))
+
