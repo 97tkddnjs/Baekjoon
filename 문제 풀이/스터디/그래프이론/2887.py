@@ -1,6 +1,7 @@
 from itertools import combinations
 import math
 
+
 def union_parent(parent, a, b):
     a= find_parent(parent,a)
     b=find_parent(parent,b)
@@ -26,31 +27,23 @@ result = 0
 n =int(input())
 
 parent=[0]*(n+1) # cycle 체크를 위해서 필요할 수 밖에 없네
+
 # 부모 테이블상에서,부모를 자기 자신으로 초기화
 for i in range(1,n+1):
     parent[i] =i
 
-comb= [i for i in range(1,n+1)]
-comb = list(combinations(comb,2))
 
 space= dict()
 
-
 for i in range(1,n+1):
-    x ,y ,z= map(float, input().split())
+    x ,y ,z= map(int, input().split())
     space[i] =(x,y,z)
 
-for c in comb:
-    a, b = c
-    cost = distance(space[a], space[b])
-    edges.append((cost,a,b))
 
-del comb
 
 # 간선을 비용순으로 정렬하기
 edges.sort()
-# print(edges)
-# print(parent)
+
 # 간선을 하나씩 확인하며
 for edge in edges:
     cost, a, b= edge
@@ -61,6 +54,5 @@ for edge in edges:
         #print(cost)
         result +=cost
 
-#print(edges)
 
 print(int(result))
