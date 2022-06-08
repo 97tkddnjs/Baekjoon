@@ -23,7 +23,7 @@ for i in range(1,v+1):
 
 
 
-cycle =True
+cycle =False
 
 for i in range(e):
     a,b = map(int,input().split())
