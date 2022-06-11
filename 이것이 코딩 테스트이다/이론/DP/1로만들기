@@ -1,0 +1,41 @@
+def func(x):
+    cnt=0
+    while True:
+        if x==1:
+            break
+        if x%5==0:
+            cnt+=1
+            x= x//5
+        elif x%3==0:
+            cnt+=1
+            x=x//3
+        elif x%2==0:
+            cnt+=1
+            x=x//2
+        else:
+            cnt+=1
+            x-=1
+    return cnt
+
+d= [0]*30001
+def dp_func(x):
+
+    for i in range(2,x+1):
+
+        # 현재의 수에서 1을 빼는 경우
+        d[i] = d[i-1] +1
+        print("1,  d[",i,"] ",d[i])
+        # 현재의 수가 2로 나누어 떨어지는 경우
+        if i%2 ==0:
+            d[i] =min(d[i],d[i//2]+1)
+            print("2,  d[",i,"] ",d[i])
+        # 현재의 수가 3으로 나누어 떨어지는 경우
+        if i%3 ==0:
+            d[i] =min(d[i],d[i//3]+1)
+            print("3,  d[",i,"] ",d[i])
+        # 현재의 수가 5로 나누어 떨어지는 경우
+        if i%5 ==0:
+            d[i] =min(d[i],d[i//5]+1)
+            print("5,  d[",i,"] ",d[i])
+    return d[x]
+print(dp_func(26))
