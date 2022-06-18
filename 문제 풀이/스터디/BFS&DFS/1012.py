@@ -1,52 +1,58 @@
-# 유기농 배추
 from collections import deque
+import time
+import copy
+def solution(grid, k):
+    
+    n =len(grid)
+    m = len(grid[0])
 
-T = int(input())
+    grid = list(map(list,grid))
 
-dx = [0, 0, -1, 1]
-dy = [-1, 1, 0, 0]
-
-
-def bfs(x, y, n, m) -> bool:
-    # 12시 방향 기준 상, 하, 좌, 우
+    visited= [[0]*m for i in range(m) ]#copy.copy(grid)
 
     queue = deque()
-    queue.append((x, y))
-    graph[x][y] = 0
+    queue.append((0,0))
+    
 
+    dx =[-1,1,0,0]
+    dy= [0,0,-1,1]
+    
+    cnt=0
     while queue:
-
-        x, y = queue.popleft()
-
+        x,y = queue.popleft()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if nx < 0 or ny < 0 or nx >= n or ny >= m:
+            nx= x+dx[i]
+            ny= y+dy[i]
+            if nx<0 or ny <0 or nx>=n or ny>=m:
                 continue
-            if graph[nx][ny] == 0:
+            # water
+            if grid[nx][ny] =='#':
                 continue
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = 0
-                queue.append((nx, ny))
 
-    return
+            #print(grid[nx][ny])
+            if grid[nx][ny] =='.' or grid[nx][ny] =='F':
+                cnt+=1
+                grid[x][y] ='#'
+                visited[nx][ny] = visited[x][y]+1
+                print(nx, ny)
+
+                for data in visited:
+                    for i in data:
+                        print(i,end=" ")
+                    print()
+                print()
+                queue.append((nx,ny))
+                
+            
+    
+    print(visited)
+            
 
 
-result = [0] * T
-for t in range(T):
-    M, N, K = map(int, input().split())
-    # M : 가로(열) y , N : 세로(행) x
-    graph = [[0] * M for i in range(N)]
+    answer = cnt
+    return answer
 
-    for k in range(K):
-        m, n = map(int, input().split())
-        graph[n][m] = 1
-    # print(data)
-    for i in range(N):
-        for j in range(M):
-            if graph[i][j] == 1:
-                bfs(i, j, N, M)
-                result[t] += 1
 
-for i in result:
-    print(i)
+
+solution(["..FF", "###F", "###."], 4)
+solution([".F.FFFFF.F", ".########.", ".########F", "...######F", "##.######F", "...######F", ".########F", ".########.", ".#...####F", "...#......"], 6)
