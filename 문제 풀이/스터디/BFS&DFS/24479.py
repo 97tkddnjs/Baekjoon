@@ -1,10 +1,13 @@
 import sys
 sys.setrecursionlimit(10**6)
-
+input = sys.stdin.readline
 def dfs(graph, v, visited):
     # 현재 노드를 방문처리
     global cnt
-    print(v)
+    visited[v]=True
+    cnt+=1
+    data[v]=cnt
+    # print(v)
 
     # 오름차순 만들어주기
     graph[v].sort()
@@ -27,6 +30,10 @@ for i in range(m):
 
 #print(graph)
 visited=[False]*(n+1)
+result=[]
+data={i:0 for i in range(1,n+1)}
+
 dfs(graph, r, visited)
-for data in range(n-cnt):
-    print(0)
+
+for i,d in data.items():
+    print(d)
