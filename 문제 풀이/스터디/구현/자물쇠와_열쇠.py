@@ -12,7 +12,10 @@ def rotate90(list_data):
             tmp[j][n-1-i] = list_data[i][j]
     
     return tmp
-    
+
+
+def check():
+    pass
 
 def solution(key, lock):
     
