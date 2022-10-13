@@ -19,12 +19,12 @@ for data, i in enumerate(list(map(int, input().split()))):
 
 # print(op)
 
-operators = list(permutations(op,len(op)))
+operators = list(permutations(op,n-1))
 
 # print(operators)
 # operators =[(0, 0, 3, 1, 2),(1,3,0,0,2)]
-res_min =True
-res_max =True
+res_min =1e9
+res_max =-1e9
 
 for ops in operators:
     tmp=num[0]
@@ -41,24 +41,15 @@ for ops in operators:
             tmp*=i
             # print("*",i,"=",tmp)
         elif j==3:
-            tmp//=i
-            if tmp <0:
-                tmp =0
+            tmp= int(tmp/i)
+            
             # print("/",i,"=",tmp)
-    if res_min==True and res_max==True:
-        res_min =False
-        res_max==False
-        res_min =tmp
-        res_max = tmp
-    
     # print("r tmp",res_min,tmp)
     res_min = min(res_min, tmp)
     res_max = max(res_max,tmp)
     # print("res_min",res_min)
             
-    
 
-    
 
 print(res_max, res_min,sep="\n")
 # (0, 0, 3, 1, 2)
