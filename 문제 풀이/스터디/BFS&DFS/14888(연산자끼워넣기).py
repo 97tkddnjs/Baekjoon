@@ -1,6 +1,6 @@
 import sys
 from itertools import permutations, product
-
+# 경우의수 안쓰고 풀기! 도전
 input= sys.stdin.readline
 
 n= int(input())
