@@ -9,4 +9,12 @@ graph=[]
 for _ in range(r):
 
     tmp = list(input().split())
-    graph.append()
+    graph.append(tmp)
+
+print(graph)
+
+def bfs():
+    pass
+
+
+
