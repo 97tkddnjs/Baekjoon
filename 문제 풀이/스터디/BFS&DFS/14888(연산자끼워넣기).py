@@ -19,6 +19,7 @@ for data, i in enumerate(list(map(int, input().split()))):
 
 # print(op)
 
+# <- 핵심이였던 것 같음!!
 operators = list(permutations(op,n-1))
 
 # print(operators)

@@ -7,7 +7,6 @@ r, c = map(int,input().split())
 graph=[]
 
 for _ in range(r):
-
     tmp = list(input().split())
     graph.append(tmp)
 
