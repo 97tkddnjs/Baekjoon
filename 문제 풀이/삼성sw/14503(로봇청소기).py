@@ -32,14 +32,18 @@ def algo(x,y , stop):
             break
     print(check)
     if check:
-        dir.rotate(1)
+        
+        dir.rotate(-1)
+        print("logic 1" , dir[0], dir)
         nx = x+dx[dir[0]]
         ny = y + dy[dir[0]]
         if data[ny][nx] == 0:
             x = nx
             y = ny
     else:
-        dir.rotate(2)
+       
+        dir.rotate(-2)
+        print("logic 2", dir[0])
         nx = x+dx[dir[0]]
         ny = y + dy[dir[0]]
         if data[ny][nx] == 0:
@@ -53,7 +57,7 @@ def algo(x,y , stop):
 
 
 r, c ,d = map(int, input().split())
-dir.rotate(d)
+dir.rotate(-d)
 
 data = []
 for _ in range(n):
@@ -76,6 +80,4 @@ while not stop:
 
 print(s)
 print(cnt)
-
-
 
