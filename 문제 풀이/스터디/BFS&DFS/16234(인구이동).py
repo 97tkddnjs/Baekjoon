@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from collections import deque
 
 
@@ -28,7 +28,7 @@ def dfs(visited, graph):
 
     pass
 
-=======
+
 from collections import deque
 import sys
 
@@ -114,4 +114,4 @@ while val !=-1:
     val = bfs()
 
 print(move)
->>>>>>> 39a3a10a0f8a062647c4fcb52eb18206515745bf
+
