@@ -43,6 +43,6 @@ def dijkstar(start):
 
 dijkstar(1)
 
-print(distance)
-print(graph)
+print(distance[-1])
+
 
