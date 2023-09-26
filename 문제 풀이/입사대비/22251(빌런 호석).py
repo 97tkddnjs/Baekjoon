@@ -35,4 +35,14 @@ for i in range(10):
 
     number.append(tmp)
 
-print(number)
+N,K,P,X = map(int, input().split())
+
+
+data =[]
+
+for k in range(K):
+    idx = X%10
+    X = X//10
+
+    data.append(number[idx])
+    
